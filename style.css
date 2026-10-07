@@ -1,0 +1,937 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --page-bg: #f6f7f9;
+      --white: #ffffff;
+
+      --text: #17202d;
+      --text-soft: #536071;
+      --muted: #8792a2;
+
+      --border: #e4e8ed;
+      --border-dark: #d8dde5;
+
+      --navy: #1d2939;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-light: #eff6ff;
+
+      --green: #15803d;
+      --green-light: #f0fdf4;
+
+      --amber: #b45309;
+      --amber-light: #fffbeb;
+
+      --red: #c0392b;
+      --red-light: #fef2f2;
+
+      --shadow: 0 8px 28px rgba(16, 24, 40, 0.06);
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+    }
+
+    /* ========================================
+       DASHBOARD
+    ======================================== */
+
+    .dashboard {
+      width: min(1240px, calc(100% - 40px));
+      margin: 38px auto;
+    }
+
+    /* ========================================
+       HEADER
+    ======================================== */
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+    }
+
+    .header-left h1 {
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      color: #111827;
+    }
+
+    .header-left p {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .system-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 12px;
+
+      border: 1px solid var(--border);
+      background: var(--white);
+
+      border-radius: 7px;
+
+      color: var(--text-soft);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .system-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22a06b;
+    }
+
+    /* ========================================
+       MAIN CONTAINER
+    ======================================== */
+
+    .dashboard-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    /* ========================================
+       TOP SECTION
+    ======================================== */
+
+    .top-section {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+    }
+
+    /* ========================================
+       PROFILE
+    ======================================== */
+
+    .profile {
+      padding: 30px;
+      border-right: 1px solid var(--border);
+      background: #fbfcfd;
+    }
+
+    .profile-image-container {
+      position: relative;
+      width: 92px;
+      height: 92px;
+      margin-bottom: 20px;
+    }
+
+    .profile-image {
+      width: 92px;
+      height: 92px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+
+      box-shadow:
+        0 0 0 1px var(--border-dark),
+        0 5px 15px rgba(16, 24, 40, 0.10);
+    }
+
+    .online-dot {
+      position: absolute;
+
+      right: 3px;
+      bottom: 3px;
+
+      width: 15px;
+      height: 15px;
+
+      background: #22a06b;
+
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+    }
+
+    .profile-label {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      margin-bottom: 8px;
+    }
+
+    .profile h2 {
+      color: #111827;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 700;
+
+      margin-bottom: 12px;
+    }
+
+    .profile p {
+      color: var(--text-soft);
+      font-size: 12.5px;
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       CAMPAIGN INFORMATION
+    ======================================== */
+
+    .campaign {
+      padding: 30px;
+    }
+
+    .campaign-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      gap: 20px;
+
+      margin-bottom: 20px;
+    }
+
+    .campaign-title {
+      color: #111827;
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .campaign-subtitle {
+      margin-top: 6px;
+
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .campaign-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      padding: 7px 10px;
+
+      border-radius: 6px;
+
+      background: var(--red-light);
+      border: 1px solid #fee2e2;
+
+      color: var(--red);
+
+      font-size: 11px;
+      font-weight: 700;
+
+      white-space: nowrap;
+    }
+
+    .campaign-status-dot {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    /* ========================================
+       URL
+    ======================================== */
+
+    .url-container {
+      padding: 13px 14px;
+
+      border: 1px solid var(--border);
+      background: #fafbfc;
+
+      border-radius: 7px;
+
+      margin-bottom: 22px;
+    }
+
+    .url-label {
+      color: var(--muted);
+
+      font-size: 9px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+
+      margin-bottom: 5px;
+    }
+
+    .url {
+      color: #475467;
+
+      font-size: 12px;
+
+      word-break: break-all;
+    }
+
+    /* ========================================
+       TABLE
+    ======================================== */
+
+    .campaign-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .campaign-table th {
+      text-align: left;
+
+      padding: 0 10px 10px;
+
+      color: #98a2b3;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    .campaign-table td {
+      padding: 12px 10px;
+
+      border-top: 1px solid #edf0f3;
+
+      font-size: 12px;
+
+      vertical-align: middle;
+    }
+
+    .campaign-table tr:first-child td {
+      border-top: 1px solid var(--border);
+    }
+
+    .series-number {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .series-name {
+      color: #344054;
+      font-weight: 600;
+    }
+
+    .series-description {
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 3px;
+    }
+
+    .date {
+      color: #667085;
+      white-space: nowrap;
+    }
+
+    /* ========================================
+       STATUS
+    ======================================== */
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      padding: 5px 8px;
+
+      border-radius: 5px;
+
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .status::before {
+      content: "";
+
+      width: 5px;
+      height: 5px;
+
+      border-radius: 50%;
+    }
+
+    .status.completed {
+      color: var(--green);
+      background: var(--green-light);
+    }
+
+    .status.completed::before {
+      background: var(--green);
+    }
+
+    .status.error {
+      color: var(--red);
+      background: var(--red-light);
+    }
+
+    .status.error::before {
+      background: var(--red);
+    }
+
+    .check-icon {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 23px;
+      height: 23px;
+
+      border-radius: 50%;
+
+      color: var(--green);
+      background: var(--green-light);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .error-icon {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 23px;
+      height: 23px;
+
+      border-radius: 50%;
+
+      color: var(--red);
+      background: var(--red-light);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* ========================================
+       INFORMATION SECTIONS
+    ======================================== */
+
+    .section {
+      padding: 28px 30px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      color: #1d2939;
+
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .section-header p {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 5px;
+    }
+
+    /* ========================================
+       CAPACITY GRID
+    ======================================== */
+
+    .capacity-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 10px;
+    }
+
+    .capacity-item {
+      min-height: 76px;
+
+      padding: 14px;
+
+      border: 1px solid var(--border);
+
+      background: #ffffff;
+
+      border-radius: 7px;
+    }
+
+    .capacity-label {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 9px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+
+      margin-bottom: 7px;
+    }
+
+    .capacity-value {
+      color: #344054;
+
+      font-size: 12px;
+      line-height: 1.4;
+
+      font-weight: 650;
+    }
+
+    .capacity-item.primary {
+      border-color: #dbe7ff;
+      background: #f8faff;
+    }
+
+    .capacity-item.primary .capacity-value {
+      color: var(--blue);
+    }
+
+    /* ========================================
+       BLASTING DETAILS
+    ======================================== */
+
+    .details-container {
+      border: 1px solid var(--border);
+
+      border-radius: 7px;
+
+      padding: 17px;
+
+      background: #fafbfc;
+    }
+
+    .details-list {
+      list-style: none;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px 30px;
+    }
+
+    .details-list li {
+      position: relative;
+
+      padding-left: 20px;
+
+      color: #667085;
+
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .details-list li::before {
+      content: "✓";
+
+      position: absolute;
+
+      left: 0;
+      top: 2px;
+
+      color: #1570ef;
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* ========================================
+       REACTIVATION
+    ======================================== */
+
+    .reactivation-section {
+      padding: 28px 30px;
+
+      background: #fcfcfd;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .reactivation-panel {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 25px;
+
+      padding: 20px;
+
+      border: 1px solid #f0d7d5;
+
+      border-radius: 8px;
+
+      background: #fffafa;
+    }
+
+    .reactivation-info {
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+    }
+
+    .warning-icon {
+      width: 40px;
+      height: 40px;
+
+      min-width: 40px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 7px;
+
+      background: var(--red-light);
+
+      color: var(--red);
+
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .reactivation-info h3 {
+      color: #344054;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      margin-bottom: 4px;
+    }
+
+    .reactivation-info p {
+      color: #7a8494;
+
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       BUTTON
+    ======================================== */
+
+    .reactivate-button {
+      height: 42px;
+
+      padding: 0 19px;
+
+      border: 0;
+
+      border-radius: 6px;
+
+      background: var(--blue);
+
+      color: white;
+
+      font-family: inherit;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+      white-space: nowrap;
+    }
+
+    .reactivate-button:hover {
+      background: var(--blue-dark);
+
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.18);
+    }
+
+    .reactivate-button:active {
+      transform: translateY(1px);
+    }
+
+    .reactivate-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    /* ========================================
+       LOADING
+    ======================================== */
+
+    .loading-container {
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 18px;
+
+      text-align: center;
+
+      border: 1px solid #dbe4f0;
+
+      border-radius: 7px;
+
+      background: #f8fafc;
+    }
+
+    .loading-container.active {
+      display: block;
+    }
+
+    .spinner {
+      width: 28px;
+      height: 28px;
+
+      margin: 0 auto 10px;
+
+      border: 3px solid #dbe4f0;
+
+      border-top-color: var(--blue);
+
+      border-radius: 50%;
+
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-title {
+      color: #344054;
+
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .countdown {
+      color: var(--muted);
+
+      font-size: 11px;
+
+      margin-top: 4px;
+    }
+
+    /* ========================================
+       FINAL MESSAGE
+    ======================================== */
+
+    .reactivation-message {
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 18px;
+
+      border: 1px solid #dbe4f0;
+
+      border-radius: 7px;
+
+      background: #f8fafc;
+    }
+
+    .reactivation-message.active {
+      display: block;
+    }
+
+    .message-title {
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      color: #344054;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      margin-bottom: 7px;
+    }
+
+    .message-title-icon {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 22px;
+      height: 22px;
+
+      border-radius: 5px;
+
+      background: #eaf2ff;
+
+      color: var(--blue);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .reactivation-message p {
+      color: #667085;
+
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+
+    .footer {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 17px 30px;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .footer strong {
+      color: #475467;
+      font-weight: 650;
+    }
+
+    /* ========================================
+       RESPONSIVE
+    ======================================== */
+
+    @media (max-width: 1000px) {
+
+      .top-section {
+        grid-template-columns: 250px 1fr;
+      }
+
+      .capacity-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .campaign-table {
+        min-width: 650px;
+      }
+
+      .campaign {
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      .dashboard {
+        width: calc(100% - 20px);
+        margin: 20px auto;
+      }
+
+      .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .top-section {
+        grid-template-columns: 1fr;
+      }
+
+      .profile {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .campaign-heading {
+        flex-direction: column;
+      }
+
+      .capacity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details-list {
+        grid-template-columns: 1fr;
+      }
+
+      .reactivation-panel {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .reactivate-button {
+        width: 100%;
+      }
+
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .dashboard {
+        width: calc(100% - 12px);
+        margin: 10px auto;
+      }
+
+      .profile,
+      .campaign,
+      .section,
+      .reactivation-section {
+        padding: 20px 16px;
+      }
+
+      .campaign-table th:nth-child(3),
+      .campaign-table td:nth-child(3) {
+        display: none;
+      }
+
+      .campaign-table {
+        min-width: 0;
+      }
+
+      .campaign-table th,
+      .campaign-table td {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
